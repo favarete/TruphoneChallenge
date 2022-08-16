@@ -1,8 +1,9 @@
 import json
+import time
 from datetime import datetime
 
 from kafka import KafkaConsumer
-from sqlalchemy import create_engine, text
+from sqlalchemy import create_engine, text, exc
 
 db_name = "postgres"
 db_user = "postgres"
@@ -19,25 +20,32 @@ def get_datetime(date_string):
 
 
 def add_new_row(event):
+    date_time_obj = []
     try:
         # Date Format Example: 2020-02-27T13:57:00Z
-        date_time_obj = get_datetime(event['date'])
-
-        data = {
-            "sim_card_id": event['sim-card-id'],
-            "bytes_used": int(event['bytes-used']),
-            "datetime": date_time_obj
-        }
-        statement = text("""
-            INSERT INTO events(sim_card_id, bytes_used, date_time) 
-            VALUES(:sim_card_id, :bytes_used, :datetime);
-        """)
-
-        db.execute(statement, **data)
+        date_time_obj.append(get_datetime(event['date']))
     except ValueError as e:
         # Sometimes the provided producer produces invalid dates like 2020-01-00T00:00:00Z
         print('Invalid Date')
         print(e)
+        return
+
+    data = {
+        "sim_card_id": event['sim-card-id'],
+        "bytes_used": int(event['bytes-used']),
+        "datetime": date_time_obj[0]
+    }
+    statement = text("""
+        INSERT INTO events(sim_card_id, bytes_used, date_time) 
+        VALUES(:sim_card_id, :bytes_used, :datetime);
+    """)
+
+    try:
+        db.execute(statement, **data)
+    except exc.OperationalError:
+        print("Database is busy creating the tables, wait 10 secs")
+        time.sleep(10)
+        db.execute(statement, **data)
 
 
 if __name__ == '__main__':

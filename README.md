@@ -33,6 +33,8 @@
   Obs: If you think that the build is taking too much time, you can remove the fron-end app by removing
   the `front` portion of the Docker Compose file. You will still be able to test the API directly from
   terminal with cURL or similar.
+  Obs: First time you run the application, you should wait for around 10 seconds before interacting with the
+  database and seeing any result, this time is needed for the creation of the tables.
 
 ## Unit tests 
   You can run the tests by going to the `consumer` module folder and running `docker build -t test_consumer -f TestDockerfile .`
@@ -97,3 +99,7 @@ Obs: To finish the conection run `\q` and then `exit`.
 
 ### API Documentation
 API documentation can be found by visiting `http://localhost:8001/redoc` on the browser
+
+### Troubleshooting 
+Error: ENOSPC no space left on device -Nodejs
+Solution: Clean your Docker images by running `docker system prune`
