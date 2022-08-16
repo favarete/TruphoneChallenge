@@ -32,7 +32,8 @@
   `docker-compose down && docker-compose build --no-cache && docker-compose up`.
   Obs: If you think that the build is taking too much time, you can remove the fron-end app by removing
   the `front` portion of the Docker Compose file. You will still be able to test the API directly from
-  terminal with cURL or similar.
+  terminal with cURL or similar. To send more data to the application you can run `produces` again
+  with `docker-compose start producer`.
   Obs: First time you run the application, you should wait for around 10 seconds before interacting with the
   database and seeing any result, this time is needed for the creation of the tables.
 
