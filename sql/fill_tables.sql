@@ -1,0 +1,15 @@
+INSERT INTO inventory(sim_card_id, org_id) VALUES ('89440001', 'a01b7');
+INSERT INTO inventory(sim_card_id, org_id) VALUES ('89440002', 'a01b7');
+INSERT INTO inventory(sim_card_id, org_id) VALUES ('89440003', 'a01b7');
+INSERT INTO inventory(sim_card_id, org_id) VALUES ('89440004', 'a01b7');
+INSERT INTO inventory(sim_card_id, org_id) VALUES ('89440005', 'a01b7');
+INSERT INTO inventory(sim_card_id, org_id) VALUES ('89440006', 'x00g8');
+INSERT INTO inventory(sim_card_id, org_id) VALUES ('89440007', 'x00g8');
+INSERT INTO inventory(sim_card_id, org_id) VALUES ('89440008', 'x00g8');
+INSERT INTO inventory(sim_card_id, org_id) VALUES ('89440009', 'x00g8');
+INSERT INTO inventory(sim_card_id, org_id) VALUES ('89440010', 'x00g8');
+INSERT INTO inventory(sim_card_id, org_id) VALUES ('89440011', 'f00ff');
+INSERT INTO inventory(sim_card_id, org_id) VALUES ('89440012', 'f00ff');
+INSERT INTO inventory(sim_card_id, org_id) VALUES ('89440013', 'f00ff');
+INSERT INTO inventory(sim_card_id, org_id) VALUES ('89440014', 'f00ff');
+INSERT INTO inventory(sim_card_id, org_id) VALUES ('89440016', 'f00ff');
