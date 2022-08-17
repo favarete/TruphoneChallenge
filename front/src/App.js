@@ -198,7 +198,7 @@ function App() {
         >
             <Grid item>
                 <Typography variant="h4" className={'hero'}>
-                    Truphone Challenge Playgroung
+                    Truphone Challenge Playground
                 </Typography>
             </Grid>
             <Stack direction='row' spacing={2} className={'spacer header'}>
